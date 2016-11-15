@@ -1,4 +1,4 @@
-FROM nginx:mainline-alpine
+FROM hub.coloseo.io/nginx:mainline-alpine
 
 MAINTAINER ngineered <support@ngineered.co.uk>
 
@@ -6,7 +6,9 @@ ENV php_conf /etc/php7/php.ini
 ENV fpm_conf /etc/php7/php-fpm.d/www.conf
 ENV composer_hash aa96f26c2b67226a324c27919f1eb05f21c248b987e6195cad9690d5c1ff713d53020a02ac8c217dbf90a7eacc9d141d 
 
-RUN sed -i -e "s/v3.4/edge/" /etc/apk/repositories && apk update && \
+RUN sed -i -e "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/" /etc/apk/repositories && \
+    sed -i -e "s/v3.4/edge/" /etc/apk/repositories && \
+    apk update && \
     apk add --no-cache bash \
     openssh-client \
     wget \
