@@ -6,8 +6,10 @@ ENV php_conf /etc/php5/php.ini
 ENV fpm_conf /etc/php5/php-fpm.conf
 ENV composer_hash aa96f26c2b67226a324c27919f1eb05f21c248b987e6195cad9690d5c1ff713d53020a02ac8c217dbf90a7eacc9d141d 
 
-#RUN echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories && \
-RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
+
+RUN echo http://mirrors.aliyun.com/alpine/v3.4/main > /etc/apk/repositories && \
+    echo http://mirrors.aliyun.com/alpine/v3.4/community >> /etc/apk/repositories && \
+    echo @testing http://mirrors.aliyun.com/alpine/edge/testing >> /etc/apk/repositories && \
     echo /etc/apk/respositories && \
     apk update && \
     apk add --no-cache bash \
