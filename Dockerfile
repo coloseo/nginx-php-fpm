@@ -42,6 +42,8 @@ RUN echo http://mirrors.aliyun.com/alpine/v3.4/main > /etc/apk/repositories && \
     php5-soap \
     php5-dom \
     php5-zip \
+    php5-posix \
+    php5-apcu \
     php5-redis@testing \
     python \
     python-dev \
@@ -62,8 +64,8 @@ RUN echo http://mirrors.aliyun.com/alpine/v3.4/main > /etc/apk/repositories && \
     php -r "if (hash_file('SHA384', 'composer-setup.php') === '${composer_hash}') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && \
     php composer-setup.php --install-dir=/usr/bin --filename=composer && \
     php -r "unlink('composer-setup.php');" && \
-    pip install -U pip && \
-    pip install -U certbot && \
+    pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple -U pip && \
+    pip install -i https://mirrors.ustc.edu.cn/pypi/web/simple -U certbot && \
     mkdir -p /etc/letsencrypt/webrootauth && \
     apk del gcc musl-dev linux-headers libffi-dev augeas-dev python-dev
 
