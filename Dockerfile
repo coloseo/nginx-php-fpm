@@ -16,6 +16,7 @@ RUN echo @testing http://mirrors.aliyun.com/alpine/edge/testing >> /etc/apk/repo
     supervisor \
     curl \
     git \
+    tzdata \
     php7-fpm \
     php7-pdo \
     php7-pdo_mysql \
