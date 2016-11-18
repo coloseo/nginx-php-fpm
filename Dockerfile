@@ -18,6 +18,7 @@ RUN echo http://mirrors.aliyun.com/alpine/v3.4/main > /etc/apk/repositories && \
     supervisor \
     curl \
     git \
+    tzdata \
     php5-fpm \
     php5-pdo \
     php5-pdo_mysql \
